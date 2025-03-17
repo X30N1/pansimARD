@@ -52,12 +52,12 @@ void setup() {
   pinMode(sygZ2, OUTPUT);
 
   // Miejsce na wstawienie funkcji stałych
+  sygnalizacjaSetup();
 }
 
 void loop() {
   // Kod który wykonuje się cały czas:
-  testRGB(0,0,0);
-  sygnalizacjaKolejowa();
+  sygnalizacjaDrogowa();
 }
 
 void sygnalizacjaSetup() {
@@ -75,7 +75,7 @@ void sygnalizacjaSetup() {
   digitalWrite(sygZ2, HIGH);
 }
 
-void SygnalizacjaDrogowa() {
+void sygnalizacjaDrogowa() {
   // Symulacja sygnalizacji drogowej przełączanej guzikiem, należy używać z sygnalizacjaSetup na void setup() 
   if (digitalRead(guzik) == HIGH && zmiana == false) {
 
@@ -126,6 +126,7 @@ void SygnalizacjaDrogowa() {
     digitalWrite(sygZ2, HIGH);
 
     zmiana = false;
+    delay(1000);
   }
 }
 
