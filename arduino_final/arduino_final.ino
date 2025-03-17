@@ -5,7 +5,7 @@ const int czasMigania = 1000;  // Czas w ms. 1s = 1000 ms
 
 // Sygnalizacja drogowa
 // Guzik
-const int guzik = 13; // D13 na G-J28
+const int guzik = 1; // D13 na G-J28
 
 // Światła nr.1 (najbliżej syg. kolejowej)
 const int sygC = 4; // D4 na A-D37
@@ -52,12 +52,12 @@ void setup() {
   pinMode(sygZ2, OUTPUT);
 
   // Miejsce na wstawienie funkcji stałych
-  testRGB(255, 0, 0);
 }
 
 void loop() {
   // Kod który wykonuje się cały czas:
-  SygnalizacjaKolejowa();
+  testRGB(0,0,0);
+  sygnalizacjaKolejowa();
 }
 
 void sygnalizacjaSetup() {
@@ -147,7 +147,7 @@ void testRGB(int r, int g, int b) {
   // Skrypt do testowania diody RGB, skala 0-255 PWM. Należy używać w void setup()
   // testRGB WYKLUCZA użycie sygnalizacji drogowej
 
-  analogWrite(9, r);
-  analogWrite(10, g);
-  analogWrite(11, b);
+  analogWrite(9, 255 - r);
+  analogWrite(10, 255 - g);
+  analogWrite(11, 255 - b);
 }
